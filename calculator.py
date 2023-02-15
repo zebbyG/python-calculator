@@ -34,7 +34,7 @@ elif math_opp == "**":
     result = digit1 ** digit2
 
 else:
-    print("404 operator" + " " + f"\033[1;31m{math_opp}\033[0m not found." + "Try again with a \033[1;32m"
+    print("\033[1;31m404\033[0m operator" + " " + f"\033[1;31m{math_opp}\033[0m not found." + "Try again with a \033[1;32m"
                                                                              "valid operator :)\033[0m")
     result = None
 
