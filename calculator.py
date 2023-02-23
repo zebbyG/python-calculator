@@ -1,40 +1,81 @@
 class Calculator:
+    """
+    To calculate using different opperations at a time
+    """
     def __init__(self):
+        """
+        direct initializing attribute history
+        """
         self.history = []
 
     def add(self, x, y):
+        """
+        :param x: first digit
+        :param y: second digit
+        :return: the sumation of both digits
+        """
         result = x + y
         self.history.append(f"{x} + {y} = {result}")
         return result
 
     def subtract(self, x, y):
+        """
+        :param x: first digit
+        :param y: second digit
+        :return: the substraction of both digits
+        """
         result = x - y
         self.history.append(f"{x} - {y} = {result}")
         return result
 
     def multiply(self, x, y):
+        """
+        :param x: first digit
+        :param y: second digit
+        :return: the multiplication of both digits
+        """
         result = x * y
         self.history.append(f"{x} * {y} = {result}")
         return result
 
     def divide(self, x, y):
+        """
+        :param x: first digit
+        :param y: second digit
+        :return: the division of both digits
+        """
         result = x / y
         self.history.append(f"{x} / {y} = {result}")
         return result
 
     def power(self, x, y):
+        """
+        :param x: first digit
+        :param y: second digit
+        :return: x multiplying itself as many times as y
+        """
         result = x ** y
         self.history.append(f"{x} ** {y} = {result}")
         return result
 
     def modular(self, x, y):
+        """
+        :param x: first digit
+        :param y: second digit
+        :return: the remainder after both digits are divided
+        """
         result = x % y
-        self.history.append(f"{x} ** {y} = {result}")
+        self.history.append(f"{x} % {y} = {result}")
         return result
 
     def nearest_whole_number(self, x, y):
+        """
+        :param x: first digit
+        :param y: second digit
+        :return: the nearest whole number after both digits are divided
+        """
         result = x // y
-        self.history.append(f"{x} ** {y} = {result}")
+        self.history.append(f"{x} // {y} = {result}")
         return result
 
 
