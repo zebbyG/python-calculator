@@ -1,42 +1,89 @@
+class Calculator:
+    def __init__(self):
+        self.history = []
+
+    def add(self, x, y):
+        result = x + y
+        self.history.append(f"{x} + {y} = {result}")
+        return result
+
+    def subtract(self, x, y):
+        result = x - y
+        self.history.append(f"{x} - {y} = {result}")
+        return result
+
+    def multiply(self, x, y):
+        result = x * y
+        self.history.append(f"{x} * {y} = {result}")
+        return result
+
+    def divide(self, x, y):
+        result = x / y
+        self.history.append(f"{x} / {y} = {result}")
+        return result
+
+    def power(self, x, y):
+        result = x ** y
+        self.history.append(f"{x} ** {y} = {result}")
+        return result
+
+    def modular(self, x, y):
+        result = x % y
+        self.history.append(f"{x} ** {y} = {result}")
+        return result
+
+    def nearest_whole_number(self, x, y):
+        result = x // y
+        self.history.append(f"{x} ** {y} = {result}")
+        return result
+
+
+calculator = Calculator()
+
 while True:
     try:
-        digit1 = float(input("Enter first digit: "))
+        digit1 = float(input("Enter first number: "))
         break
     except ValueError:
         print("\033[1;31mPlease enter a valid number\033[0m")
-math_opp = input("Enter operator: ")
+math_opp = input("Enter operator(\033[1;34m+, -, /, *, **, %, //\033[0m): ")
 while True:
     try:
-        digit2 = float(input("Enter last digit: "))
+        digit2 = float(input("Enter last number: "))
         break
     except ValueError:
         print("\033[1;31mPlease enter a valid number\033[0m")
 
 if math_opp == "+":
-    result = digit1 + digit2
+    result = calculator.add(digit1, digit2)
 
 elif math_opp == "-":
-    result = digit1 - digit2
+    result = calculator.subtract(digit1, digit2)
 
 elif math_opp == "%":
-    result = digit1 % digit2
+    result = calculator.modular(digit1, digit2)
 
 elif math_opp == "*":
-    result = digit1 * digit2
+    result = calculator.multiply(digit1, digit2)
 
 elif math_opp == "/":
-    result = digit1 / digit2
+    result = calculator.divide(digit1, digit2)
 
 elif math_opp == "//":
-    result = digit1 // digit2
+    result = calculator.nearest_whole_number(digit1, digit2)
 
 elif math_opp == "**":
-    result = digit1 ** digit2
+    result = calculator.power(digit1, digit2)
 
 else:
-    print("\033[1;31m404\033[0m operator" + " " + f"\033[1;31m{math_opp}\033[0m not found." + "Try again with a \033[1;32m"
-                                                                             "valid operator :)\033[0m")
+    print(f"\033[1;31m404 operator {math_opp}\033[0m not found." +
+          "Try again with a \033[1;32m""valid operator :)\033[0m")
     result = None
 
 if result is not None:
     print(f"\033[32mAnswer = {round(result, 3)}\033[0m")
+
+math_history = input("To see math history press \033[1;34menter\033[0m")
+if math_history:
+    for calculation in calculator.history:
+            print(calculation)
