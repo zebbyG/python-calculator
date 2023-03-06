@@ -1,6 +1,6 @@
 class Calculator:
     """
-    To calculate using different opperations at a time
+    To calculate using different operations at a time
     """
     def __init__(self):
         """
@@ -12,7 +12,7 @@ class Calculator:
         """
         :param x: first digit
         :param y: second digit
-        :return: the sumation of both digits
+        :return: the summation of both digits
         """
         result = x + y
         self.history.append(f"{x} + {y} = {result}")
@@ -81,13 +81,23 @@ class Calculator:
 
 calculator = Calculator()
 
+# first digit input
 while True:
     try:
         digit1 = float(input("Enter first number: "))
         break
     except ValueError:
         print("\033[1;31mPlease enter a valid number\033[0m")
-math_opp = input("Enter operator(\033[1;34m+, -, /, *, **, %, //\033[0m): ")
+
+# operator input
+while True:
+    math_opp = input("Enter operator(\033[1;34m+, -, /, *, **, %, //\033[0m): ")
+    if math_opp:
+        break
+    else:
+        print("\033[1;31mmath opperator cannot be empty\033[0m")
+
+# second digit input
 while True:
     try:
         digit2 = float(input("Enter last number: "))
@@ -117,14 +127,14 @@ elif math_opp == "**":
     result = calculator.power(digit1, digit2)
 
 else:
-    print(f"\033[1;31m404 operator {math_opp}\033[0m not found." +
-          "Try again with a \033[1;32m""valid operator :)\033[0m")
+    print(f"\033[1;31m404 operator\033[0m \033[1;33m{math_opp}\033[0m \033[1;31mnot found\n\033[0m" +
+          "Try again with a \033[1;32m""valid operator\033[0m")
     result = None
 
 if result is not None:
     print(f"\033[32mAnswer = {round(result, 3)}\033[0m")
 
-math_history = input("To see math history press \033[1;34menter\033[0m")
-if math_history:
-    for calculation in calculator.history:
-            print(calculation)
+# math_history = input("To see math history press \033[1;34menter\033[0m")
+# if math_history:
+#     for calculation in calculator.history:
+#         print(calculation)
