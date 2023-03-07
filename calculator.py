@@ -1,3 +1,10 @@
+from colorama import init, Fore, Style
+init()
+"""
+required modules
+"""
+
+
 class Calculator:
     """
     To calculate using different operations at a time
@@ -87,15 +94,15 @@ while True:
         digit1 = float(input("Enter first number: "))
         break
     except ValueError:
-        print("\033[1;31mPlease enter a valid number\033[0m")
+        print(Fore.RED + "Please enter a valid number" + Style.RESET_ALL)
 
 # operator input
 while True:
-    math_opp = input("Enter operator(\033[1;34m+, -, /, *, **, %, //\033[0m): ")
+    math_opp = input("Enter operator(" + Fore.BLUE + "+, -, /, *, **, %, //" + Style.RESET_ALL + ")")
     if math_opp:
         break
     else:
-        print("\033[1;31mmath opperator cannot be empty\033[0m")
+        print(Fore.RED + "math operator cannot be empty" + Style.RESET_ALL)
 
 # second digit input
 while True:
@@ -103,7 +110,7 @@ while True:
         digit2 = float(input("Enter last number: "))
         break
     except ValueError:
-        print("\033[1;31mPlease enter a valid number\033[0m")
+        print(Fore.RED + "Please enter a valid number" + Style.RESET_ALL)
 
 if math_opp == "+":
     result = calculator.add(digit1, digit2)
@@ -127,12 +134,12 @@ elif math_opp == "**":
     result = calculator.power(digit1, digit2)
 
 else:
-    print(f"\033[1;31m404 operator\033[0m \033[1;33m{math_opp}\033[0m \033[1;31mnot found\n\033[0m" +
-          "Try again with a \033[1;32m""valid operator\033[0m")
+    print(Fore.RED + "404 operator" + Style.RESET_ALL + Fore.YELLOW + f"{math_opp}" + Style.RESET_ALL + Fore.RED + "not found\n" +
+          "Try again with a valid operator" + Style.RESET_ALL)
     result = None
 
 if result is not None:
-    print(f"\033[32mAnswer = {round(result, 3)}\033[0m")
+    print(Fore.GREEN + "Answer = {round(result, 3)}" + Style.RESET_ALL)
 
 # math_history = input("To see math history press \033[1;34menter\033[0m")
 # if math_history:
