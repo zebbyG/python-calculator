@@ -141,7 +141,7 @@ else:
 if result is not None:
     print(Fore.GREEN + f"Answer = {round(result, 3)}" + Style.RESET_ALL)
 
-# math_history = input("To see math history press \033[1;34menter\033[0m")
+# math_history = input("To see math history press \033[1;34m enter\033[0m")
 # if math_history:
 #     for calculation in calculator.history:
 #         print(calculation)
